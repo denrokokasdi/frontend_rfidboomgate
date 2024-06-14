@@ -1,0 +1,20 @@
+.custom-container {
+    padding-top: 20px;
+  }
+  
+  .custom-row {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .icon-hover:hover svg {
+    color: #007bff;
+    transform: scale(1.2);
+    transition: transform 0.2s, color 0.2s;
+  }
+  
+  .icon-hover:hover {
+    cursor: pointer;
+  }
+  
