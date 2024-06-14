@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaBeer, FaCoffee, FaApple, FaAndroid } from 'react-icons/fa';
 import axios from 'axios';
@@ -7,19 +7,36 @@ import './Home.css'; // Import the CSS file
 const Home = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [username, setUsername] = useState("");
 
-  const fetchData = async () => {
+  const fetchUser = async () => {
+    console.log("username");
     try {
-      //const response = await axios.get('https://rfidboomgate.vercel.app/api/data');
-      const response = await axios.get('https://rfidboomgate.com/wp-json/getuser/v1/user');
-      setData(response.data);
-      setError(null);
+      // Extract username from the URL path
+      const usernamed = window.location.pathname.split('/').pop(); // This will extract 'karimbenzema' from '/api/data/karimbenzema'
+      console.log("usernameddd" + usernamed);
+      const response = await axios.get(`https://rfidboomgate.vercel.app/api/data/karimbenzema`);
+      // Handle response data here
+      console.log(response.data); // Assuming you want to log the response data  
+      if (response && response.data) {
+        console.log("Hasilnyaaa==========================")
+        console.log(response.data.username)
+        setData(response.data.username);
+        setUsername(response.data.username);
+        setError(null);
+      } else {
+        setError('No data received from the API');
+      }
     } catch (error) {
+      console.error('Error fetching data:', error);
       setError('Error fetching data');
       setData(null);
     }
   };
-  
+
+  useEffect(() => {
+    fetchUser(); // Initialize data fetching on component mount
+  }, []);
 
   return (
     <Container className="custom-container bgcolor-warning">
@@ -58,9 +75,6 @@ const Home = () => {
         </Col>
       </Row>
       <Row className="custom-row">
-        <Col xs={12} md={3}>
-          <Button onClick={fetchData}>Fetch Data</Button>
-        </Col>
       </Row>
       {error && (
         <Row className="custom-row">
@@ -71,9 +85,7 @@ const Home = () => {
       )}
       {data && (
         <Row className="custom-row">
-          <Col>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          </Col>
+          <p>{username}</p>
         </Row>
       )}
     </Container>
