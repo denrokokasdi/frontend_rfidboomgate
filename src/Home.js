@@ -10,7 +10,8 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://rfidboomgate.vercel.app/api/data');
+      //const response = await axios.get('https://rfidboomgate.vercel.app/api/data');
+      const response = await axios.get('https://rfidboomgate.com/wp-json/getuser/v1/user');
       setData(response.data);
       setError(null);
     } catch (error) {
@@ -18,6 +19,7 @@ const Home = () => {
       setData(null);
     }
   };
+  
 
   return (
     <Container className="custom-container bgcolor-warning">
