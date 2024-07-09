@@ -15,7 +15,7 @@ const Home = () => {
       // Extract username from the URL path
       const usernamed = window.location.pathname.split('/').pop(); // This will extract 'karimbenzema' from '/api/data/karimbenzema'
       console.log("usernameddd" + usernamed);
-      const response = await axios.get(`https://rfidboomgate.vercel.app/api/data/karimbenzema`);
+      const response = await axios.get(`https://rfidboomgate-backend.vercel.app/api/data/karimbenzema`);
       // Handle response data here
       console.log(response.data); // Assuming you want to log the response data  
       if (response && response.data) {
