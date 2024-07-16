@@ -1,1 +1,27 @@
+{
+  "apartment": {
+    "name": "Sunshine Apartments",
+    "address": "123 Sunny Street, Springfield",
+    "capacity": 150,
+    "numberOfUnits": 75,
+    "numberOfFloors": 10,
+    "parkingSpaces": 100,
+    "hasCCTV": true,
+    "numberOfCCTV": 20,
+    "hasAutoGate": true,
+    "autoGateType": "Sliding",
+    "numberOfGates": 4,
+    "gateMaterial": "Steel",
+    "hasSecurityPersonnel": true,
+    "numberOfSecurityPersonnel": 5,
+    "hasIntercomSystem": true,
+    "hasFireSafetySystem": true,
+    "yearBuilt": 2010,
+    "hasSwimmingPool": true,
+    "numberOfElevators": 2,
+    "hasGym": true,
+    "hasCommunityHall": true,
+    "maintenanceCostPerMonth": 500
+  }
+}
 
